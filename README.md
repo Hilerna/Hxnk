@@ -8,7 +8,7 @@
 ## <a id="setup"></a> 〢 For PowerShell
 
 ```
-git clone https://github.com/Hilerna/Hxnk-Multi-Tools
+git clone https://github.com/Hilerna/Hxnk
 cd hxnk
 python hxnk-main.py
 ```
